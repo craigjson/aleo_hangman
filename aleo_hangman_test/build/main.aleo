@@ -28,7 +28,7 @@ function start_game:
     cast self.caller r1 r4 into r5 as HangmanGame.record;
     output r5 as HangmanGame.record;
 
-    finalize 0u128 r5.game_state;
+    finalize 0u128 r4;
 
 finalize start_game:
     input r0 as u128.public;
@@ -11439,5 +11439,4 @@ finalize make_guess:
     input r0 as u128.public;
     input r1 as u8.public;
     input r2 as GameState.public;
-    cast r2.guesser r2.word_length r2.max_attempts r1 r2.attempts_made r2.guessed_letters r2.game_id into r3 as GameState;
     set r2 into games[r0];

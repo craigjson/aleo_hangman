@@ -38,7 +38,7 @@ program aleo_hangman_test.aleo {
             word: word,
             game_state: game_state,
         };
-        return game then finalize(0u128, game.game_state);
+        return game then finalize(0u128, game_state);
     }
 
     finalize start_game(public game_id: u128, public game: GameState) {
@@ -75,15 +75,6 @@ program aleo_hangman_test.aleo {
 
     finalize make_guess(public game_id: u128, public game_status: u8, public game: GameState) {
         // Update the Game State
-        let new_game_state: GameState = GameState {
-            guesser: game.guesser,
-            word_length: game.word_length,
-            max_attempts: game.max_attempts,
-            game_status: game_status,
-            attempts_made: game.attempts_made,
-            guessed_letters: game.guessed_letters,
-            game_id: game.game_id,
-        };
         Mapping::set(games, game_id, game);
     }
 
